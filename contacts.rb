@@ -17,8 +17,32 @@ def contacts
   }
 end
 
+emails = []
+contacts.each do |person, data|
+  data.each do | attribute, value|
+    if attribute == :email
+      # value.each do | flavor |
+        emails << value
+        # puts "#{flavor}"
+    end 
+  end
+end
+emails
+
+
 def remove_strawberry(contacts)
   # your code here!
+  contacts.each do |person, contact_details_hash |
+    if person == "Freddy Mercury"
+      contact_details_hash.each do | attribute, data |
+        if attribute == :favorite_ice_cream_flavors
+          data.delete_if do | ice_cream |
+            ice_cream == "strawberry"
+          end
+        end
+      end
+    end
+  end
 end
 
 # print the output to the terminal for inspection
